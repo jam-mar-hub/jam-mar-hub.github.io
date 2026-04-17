@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 ---
 
 <div style="margin-bottom: 30px;">
