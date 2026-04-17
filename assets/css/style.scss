@@ -77,6 +77,12 @@ section {
 
 .progress-bar {
   height: 5px;
-  background: #000080; /* Ton bleu marine */
+  background: #1E7BC9; 
   width: 0%;
+}
+
+.full-zoom {
+  transform: scale(1.8) !important;
+  z-index: 999 !important;
+  cursor: zoom-out !important;
 }
