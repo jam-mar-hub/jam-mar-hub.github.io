@@ -57,11 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = link.href;
       
       document.body.style.opacity = "0";
-      document.body.style.transition = "opacity 0.5s ease";
+      document.body.style.transition = "opacity 0.25s ease";
       
       setTimeout(() => {
         window.location.href = target;
-      }, 500);
+      }, 250);
     });
   });
 });
