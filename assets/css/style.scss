@@ -79,3 +79,23 @@ section {
   width: 0%;
 }
 
+/* Style des liens de titres sur la home */
+.project-item h2 a:hover {
+  color: #1E7BC9 !important;
+  text-decoration: underline !important;
+}
+
+/* On s'assure que sur le layout 'project', il n'y a pas de barre latérale */
+body.layout-project header {
+  display: none;
+}
+
+/* Style spécifique pour la navigation "Back" */
+section > a:first-child {
+  display: block;
+  margin-bottom: 40px;
+  transition: transform 0.2s;
+}
+section > a:first-child:hover {
+  transform: translateX(-5px);
+}
