@@ -10,22 +10,17 @@
   <body>
     <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
     
-    <div class="wrapper" style="max-width: 800px;"> <section style="width: 100%; float: none; padding: 0;">
-        <a href="{{ '/' | relative_url }}" style="text-decoration: none; color: #666; font-size: 0.9em;">← Back to projects</a>
-        {{ content }}
-      </section>
-    </div>
-
     <div class="wrapper project-container">
   
       <nav class="project-toc">
         <div class="toc-sticky-content">
           <p class="toc-title">Summary</p>
-        </div>
+          </div>
       </nav>
           
       <section class="project-content">
-        <a href="{{ '/' | relative_url }}" class="back-link">← Back to projects</a>
+        <a href="{{ '/' | relative_url }}" class="back-link" style="text-decoration: none; color: #666; font-size: 0.9em; display: block; margin-bottom: 40px; transition: transform 0.2s;">← Back to projects</a>
+        
         {{ content }}
       </section>
     
