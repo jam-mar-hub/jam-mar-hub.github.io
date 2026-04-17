@@ -2,13 +2,11 @@
 layout: default
 ---
 
-## This can be your internal website page / project page
-
 <div style="margin-bottom: 30px;">
   <h1 style="margin-bottom: 5px;">MCP Data Science</h1>
   
   <div style="display: flex; gap: 10px; font-size: 0.85em; color: #666; margin-bottom: 15px;">
-    <span>📅 Février 2026</span>
+    <span>📅 February 2026</span>
     <span>👤 Solo project</span>
   </div>
 
