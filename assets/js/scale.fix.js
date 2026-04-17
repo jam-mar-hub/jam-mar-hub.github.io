@@ -44,3 +44,25 @@ document.addEventListener('click', function (event) {
   }
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Ajoute une classe 'fade-in' au body au chargement
+  document.body.classList.add("page-loaded");
+
+  // Intercepte les clics sur les liens pour faire une sortie en douceur
+  const links = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"])');
+  links.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = link.href;
+      
+      document.body.style.opacity = "0";
+      document.body.style.transition = "opacity 0.5s ease";
+      
+      setTimeout(() => {
+        window.location.href = target;
+      }, 500);
+    });
+  });
+});
+
