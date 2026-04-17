@@ -3,62 +3,102 @@
 
 @import "{{ site.theme }}";
 
-
+/* --- 1. PROFIL & NAVIGATION (NOM EN NOIR) --- */
 header img {
   display: none !important;
 }
 
-/* Style du nom dans la barre latérale */
-header h1 a {
-  color: #000000 !important; /* Force le noir */
-  text-decoration: none !important; /* Enlève le soulignement */
-  border-bottom: none !important; /* Enlève toute bordure éventuelle */
-}
-
-header h1 a:hover {
-  color: #333333 !important; /* Un gris très foncé au survol pour garder une interaction */
-  text-decoration: none !important;
-}
-
-/* On s'assure que le titre h1 lui-même n'a pas de styles par défaut qui gênent */
 header h1 {
   margin-top: 0;
   font-weight: bold;
 }
 
-/* 1. Élargir la zone totale */
+header h1 a {
+  color: #000000 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+header h1 a:hover {
+  color: #333333 !important;
+  text-decoration: none !important;
+}
+
+/* Cache la barre latérale sur les pages projets */
+body.layout-project header {
+  display: none;
+}
+
+/* --- 2. LAYOUT (MISE EN PAGE) --- */
 .wrapper {
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* 2. Fixer le profil à gauche */
 header {
   width: 240px;
   float: left;
   position: fixed;
 }
 
-/* 3. Ajuster la zone de contenu */
 section {
   width: calc(100% - 300px);
   float: right;
   padding-left: 40px;
 }
 
-/* 4. Mode Mobile */
-@media screen and (max-width: 768px) {
-  header, section {
-    float: none;
-    position: static;
-    width: 100%;
+/* Bouton Retour dans les projets */
+section > a:first-child {
+  display: block;
+  margin-bottom: 40px;
+  transition: transform 0.2s;
+  text-decoration: none;
+  color: #666;
+  font-size: 0.9em;
+}
+
+section > a:first-child:hover {
+  transform: translateX(-5px);
+}
+
+/* --- 3. ANIMATIONS DE VOILE (FADE-IN) --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .wrapper {
-    padding: 0 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* État de base de l'image */
+/* Application de l'animation (Vitesse rapide : 0.4s) */
+.wrapper, .project-item, body.layout-project .wrapper {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out forwards !important;
+}
+
+/* Décalage progressif des projets sur la Home */
+.project-item:nth-child(1) { animation-delay: 0.05s; }
+.project-item:nth-child(2) { animation-delay: 0.1s; }
+.project-item:nth-child(3) { animation-delay: 0.15s; }
+
+.project-item {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-bottom: 50px;
+}
+
+.project-item:hover {
+  transform: translateX(5px);
+}
+
+.project-item h2 a:hover {
+  color: #1E7BC9 !important;
+  text-decoration: underline !important;
+}
+
+/* --- 4. ZOOM IMAGES --- */
 .zoom-img {
   transition: transform 0.3s ease-in-out;
   cursor: zoom-in;
@@ -69,23 +109,22 @@ section {
   z-index: 1;
 }
 
-/* Petit zoom AU SURVOL uniquement si la classe .full-zoom n'est PAS présente */
 .zoom-img:hover:not(.full-zoom) {
   transform: scale(1.05);
 }
 
-/* Zoom complet (activé par le clic via JS) */
 .full-zoom {
   transform: scale(1.8) !important;
   z-index: 999 !important;
   cursor: zoom-out !important;
 }
-/* Style de la barre de progression en haut */
+
+/* --- 5. BARRE DE PROGRESSION --- */
 .progress-container {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10000; /* Doit être au-dessus de tout */
+  z-index: 10000;
   width: 100%;
   height: 5px;
   background: rgba(0,0,0,0.1);
@@ -97,78 +136,18 @@ section {
   width: 0%;
 }
 
-/* Style des liens de titres sur la home */
-.project-item h2 a:hover {
-  color: #1E7BC9 !important;
-  text-decoration: underline !important;
-}
-
-/* On s'assure que sur le layout 'project', il n'y a pas de barre latérale */
-body.layout-project header {
-  display: none;
-}
-
-/* Style spécifique pour la navigation "Back" */
-section > a:first-child {
-  display: block;
-  margin-bottom: 40px;
-  transition: transform 0.2s;
-}
-section > a:first-child:hover {
-  transform: translateX(-5px);
-}
-
-
-/* --- Animation de Voile (Fade-in) --- */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px); /* L'élément part d'un peu plus bas */
+/* --- 6. MODE MOBILE --- */
+@media screen and (max-width: 768px) {
+  header, section {
+    float: none;
+    position: static;
+    width: 100%;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .wrapper {
+    padding: 0 20px;
   }
 }
 
-/* On applique l'animation au wrapper principal lors du chargement */
-.wrapper {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Effet progressif pour la liste des projets sur la Home */
-.project-item {
-  opacity: 0; /* Caché au début */
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* On décale l'apparition de chaque projet pour l'effet "petit à petit" */
-.project-item:nth-child(1) { animation-delay: 0.1s; }
-.project-item:nth-child(2) { animation-delay: 0.3s; }
-.project-item:nth-child(3) { animation-delay: 0.5s; }
-
-/* --- Transition fluide entre les pages --- */
 html {
   scroll-behavior: smooth;
-}
-
-/* Petit effet au survol des projets pour renforcer la fluidité */
-.project-item {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.project-item:hover {
-  transform: translateX(5px); /* Glissement léger vers la droite au survol */
-}
-
-/* Modifiez cette partie dans votre style.scss */
-.wrapper, .project-item {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards !important;
-}
-
-/* Ajoutez ceci pour être sûr que le layout projet est inclus */
-body.layout-project .wrapper {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards !important;
 }
