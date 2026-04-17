@@ -42,37 +42,28 @@
         }
     });
 
-    // --- 4. TRANSITIONS FLUIDES & MACHINE À ÉCRIRE ---
+    // --- 4. TRANSITIONS FLUIDES ---
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Déplacer le sommaire dans la barre latérale
-      const toc = document.getElementById('markdown-toc');
-      const target = document.getElementById('sidebar-toc-target');
-      
-      if (toc && target) {
-        target.appendChild(toc);
-      }
-    
-      // 2. Gestion de la surbrillance (Scrollspy)
-      window.addEventListener('scroll', () => {
-        let navigationLinks = document.querySelectorAll('#markdown-toc li a');
-        let fromTop = window.scrollY + 100;
-    
-        navigationLinks.forEach(link => {
-          try {
-            let section = document.querySelector(link.hash);
-            if (section) {
-              if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-            }
-          } catch (e) {}
+        document.body.style.opacity = "1";
+
+        if (typeof typeWriter === "function") {
+            typeWriter();
+        }
+
+        const links = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"])');
+        links.forEach(link => {
+            link.addEventListener("click", e => {
+                if (link.hostname === window.location.hostname) {
+                    e.preventDefault();
+                    const target = link.href;
+                    document.body.style.transition = "opacity 0.15s ease-out";
+                    document.body.style.opacity = "0";
+                    setTimeout(() => { window.location.href = target; }, 150); 
+                }
+            });
         });
-      });
     });
 
-    // Sécurité supplémentaire pour l'affichage
     window.addEventListener('load', () => {
         document.body.style.opacity = "1";
     });
@@ -94,31 +85,40 @@ function typeWriter() {
     if (i < text.length) {
       element.innerHTML += text.charAt(i);
       i++;
-      setTimeout(type, 60); // Vitesse d'écriture nerveuse (60ms)
+      setTimeout(type, 60); 
     }
   }
   type();
 }
 
+// --- 6. DÉPLACEMENT DU SOMMAIRE & SCROLLSPY ---
+window.addEventListener('DOMContentLoaded', () => {
+  
+  // A. On attrape le sommaire et on le déplace à gauche
+  const toc = document.getElementById('markdown-toc');
+  const target = document.getElementById('sidebar-toc-target');
+  
+  if (toc && target) {
+    target.appendChild(toc);
+    toc.style.listStyle = "none"; // Force la suppression des petits ronds
+  }
 
-window.addEventListener('scroll', event => {
-  let navigationLinks = document.querySelectorAll('#markdown-toc li a');
-  let fromTop = window.scrollY + 100;
+  // B. Effet de surbrillance au scroll (Scrollspy)
+  window.addEventListener('scroll', () => {
+    let navigationLinks = document.querySelectorAll('#markdown-toc li a');
+    let fromTop = window.scrollY + 100;
 
-  navigationLinks.forEach(link => {
-    // Essaie de trouver la section correspondante
-    let section = document.querySelector(link.hash);
-
-    // Si la section existe sur la page, on calcule sa position
-    if (section) {
-      if (
-        section.offsetTop <= fromTop &&
-        section.offsetTop + section.offsetHeight > fromTop
-      ) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    }
+    navigationLinks.forEach(link => {
+      try {
+        let section = document.querySelector(link.hash);
+        if (section) {
+          if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      } catch(e) {} // Sécurité pour éviter les erreurs de console
+    });
   });
 });
