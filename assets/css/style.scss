@@ -1,9 +1,4 @@
 ---
 ---
-@import "{{ site.theme }}";
 
-header h1 a {
-  color: #000080 !important;
-  text-align: center;
-  display: block;
-}
+@import "jekyll-theme-minimal";
