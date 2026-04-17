@@ -15,10 +15,6 @@ layout: default
     <span style="background: #f0f0f0; padding: 3px 10px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd;">NLP</span>
   </div>
 
-  <p style="font-style: italic; border-left: 3px solid #000080; padding-left: 15px; color: #444;">
-    "Imagine being able to analyse a data file simply by describing what you want out loud..."
-  </p>
-  
   <a href="https://github.com/votre-lien" style="text-decoration: none; color: black; border: 1px solid black; padding: 5px 12px; border-radius: 5px; font-size: 0.9em;">
     💻 Source code
   </a>
