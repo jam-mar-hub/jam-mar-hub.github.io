@@ -8,6 +8,24 @@ header img {
   display: none !important;
 }
 
+/* Style du nom dans la barre latérale */
+header h1 a {
+  color: #000000 !important; /* Force le noir */
+  text-decoration: none !important; /* Enlève le soulignement */
+  border-bottom: none !important; /* Enlève toute bordure éventuelle */
+}
+
+header h1 a:hover {
+  color: #333333 !important; /* Un gris très foncé au survol pour garder une interaction */
+  text-decoration: none !important;
+}
+
+/* On s'assure que le titre h1 lui-même n'a pas de styles par défaut qui gênent */
+header h1 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
 /* 1. Élargir la zone totale */
 .wrapper {
   max-width: 1000px;
