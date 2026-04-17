@@ -44,32 +44,32 @@
 
     // --- 4. TRANSITIONS FLUIDES & MACHINE À ÉCRIRE ---
     document.addEventListener("DOMContentLoaded", () => {
-        // Force l'opacité à 1 immédiatement pour éviter la page blanche prolongée
-        document.body.style.opacity = "1";
-
-        // Gestion du Typewriter
-        if (typeof typeWriter === "function") {
-            typeWriter();
-        }
-
-        // Interception des liens pour sortie rapide (150ms)
-        const links = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"])');
-        links.forEach(link => {
-            link.addEventListener("click", e => {
-                // On vérifie que c'est un lien interne
-                if (link.hostname === window.location.hostname) {
-                    e.preventDefault();
-                    const target = link.href;
-                    
-                    document.body.style.transition = "opacity 0.15s ease-out";
-                    document.body.style.opacity = "0";
-                    
-                    setTimeout(() => {
-                        window.location.href = target;
-                    }, 150); 
-                }
-            });
+      // 1. Déplacer le sommaire dans la barre latérale
+      const toc = document.getElementById('markdown-toc');
+      const target = document.getElementById('sidebar-toc-target');
+      
+      if (toc && target) {
+        target.appendChild(toc);
+      }
+    
+      // 2. Gestion de la surbrillance (Scrollspy)
+      window.addEventListener('scroll', () => {
+        let navigationLinks = document.querySelectorAll('#markdown-toc li a');
+        let fromTop = window.scrollY + 100;
+    
+        navigationLinks.forEach(link => {
+          try {
+            let section = document.querySelector(link.hash);
+            if (section) {
+              if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            }
+          } catch (e) {}
         });
+      });
     });
 
     // Sécurité supplémentaire pour l'affichage
