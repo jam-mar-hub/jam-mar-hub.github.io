@@ -36,3 +36,10 @@ window.onscroll = function() {
     myBar.style.width = scrolled + "%";
   }
 };
+
+// Script pour le zoom au clic (toggle)
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('zoom-img')) {
+    event.target.classList.toggle('full-zoom');
+  }
+});
