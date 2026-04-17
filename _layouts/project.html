@@ -16,6 +16,21 @@
       </section>
     </div>
 
+    <div class="wrapper project-container">
+  
+      <nav class="project-toc">
+        <div class="toc-sticky-content">
+          <p class="toc-title">Summary</p>
+          {% toc %} </div>
+      </nav>
+    
+      <section class="project-content">
+        <a href="{{ '/' | relative_url }}" class="back-link">← Back to projects</a>
+        {{ content }}
+      </section>
+    
+    </div>
+
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
   </body>
 </html>
