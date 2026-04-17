@@ -43,15 +43,25 @@ section {
   }
 }
 
+/* Petit zoom au passage de la souris */
 .zoom-img {
-  transition: transform .3s ease;
+  transition: transform 0.3s ease, cursor 0.3s ease;
   cursor: zoom-in;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 }
 
 .zoom-img:hover {
-  transform: scale(1.5); 
+  transform: scale(1.05); /* Zoom très léger (5%) */
+}
+
+/* Zoom complet quand on clique et maintient ou via une classe active */
+.zoom-img:active {
+  transform: scale(1.8); /* Zoom important au clic */
   position: relative;
-  z-index: 10;
+  z-index: 999;
 }
 
 /* Style de la barre de progression */
