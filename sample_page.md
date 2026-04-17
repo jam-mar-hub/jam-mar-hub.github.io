@@ -34,7 +34,7 @@ if (isAwesome){
   return true
 }
 ```
-
+On remarque que le modèle suit la loi normale : $X \sim \mathcal{N}(\mu, \sigma^2)$
 ### 2. Assess assumptions on which statistical inference will be based
 
 ```javascript
