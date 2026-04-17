@@ -3,12 +3,17 @@
 
 @import "{{ site.theme }}";
 
+/*
 header img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%; /* Optionnel : pour rendre la photo ronde */
-  max-width: 200px;    /* Ajuste la taille selon tes besoins */
+  /*max-width: 200px;    /* Ajuste la taille selon tes besoins */
+/*} */
+
+header img {
+  display: none !important;
 }
 
 /* 1. Élargir la zone totale */
