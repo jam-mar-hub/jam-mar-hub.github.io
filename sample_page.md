@@ -16,10 +16,6 @@ layout: project
 </div>
 <hr>
 
-* TOC
-{:toc}
-
----
 
 ## Project description : 
 
@@ -44,6 +40,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </div>
 
+* TOC
+{:toc}
+
+---
 
 ### 1. Suggest hypotheses about the causes of observed phenomena
 
