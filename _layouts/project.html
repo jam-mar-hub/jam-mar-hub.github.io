@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     {% include head-custom.html %}
-</head>
-<body>
+  </head>
+  
+  <body class="layout-project">
+    
     <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
     
     <div class="wrapper">
-        <section class="project-main-content">
+        <section>
             <a href="{{ '/' | relative_url }}" class="back-link">← Back to projects</a>
             {{ content }}
         </section>
     </div>
 
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-</body>
+  </body>
 </html>
