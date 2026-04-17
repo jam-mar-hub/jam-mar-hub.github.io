@@ -3,19 +3,51 @@
 
 @import "{{ site.theme }}";
 
-/* --- 1. CONFIGURATION GÉNÉRALE --- */
+/* --- 1. RESET ET BASES --- */
 header img { display: none !important; }
-header h1 a { color: #000 !important; text-decoration: none !important; border-bottom: none !important; }
-body.layout-project header { display: none; }
 
-.wrapper {
-  max-width: 900px; /* Largeur confortable pour la lecture */
-  margin: 0 auto;
+/* Style du nom dans la barre latérale (Home Page) */
+header h1 a { 
+  color: #000 !important; 
+  text-decoration: none !important; 
+  border-bottom: none !important; 
 }
 
-/* --- 2. STYLE DU SOMMAIRE (INLINE - SANS PUCES) --- */
+/* --- 2. CONFIGURATION DU WRAPPER --- */
+.wrapper {
+  max-width: 900px; /* Largeur de lecture idéale */
+  margin: 0 auto;   /* C'est ce qui centre la page */
+  position: relative;
+}
+
+/* --- 3. MISE EN PAGE HOME (Avec Sidebar) --- */
+header {
+  width: 240px;
+  float: left;
+  position: fixed;
+}
+
+section {
+  width: calc(100% - 300px);
+  float: right;
+  padding-left: 40px;
+}
+
+/* --- 4. MISE EN PAGE PROJET (SANS SIDEBAR / CENTRÉ) --- */
+body.layout-project {
+  header { display: none !important; } /* On cache le menu */
+  
+  section {
+    width: 100% !important;    /* On prend toute la largeur du wrapper */
+    float: none !important;    /* On enlève le flottement à droite */
+    padding-left: 0 !important; /* On enlève le décalage */
+    margin: 0 auto !important;
+  }
+}
+
+/* --- 5. STYLE DU SOMMAIRE (SANS PUCES) --- */
 #markdown-toc {
-  list-style: none !important;
+  list-style: none !important; /* Plus de points */
   padding: 20px 0 !important;
   margin: 20px 0 40px 0 !important;
   border-top: 1px solid #eee;
@@ -25,29 +57,29 @@ body.layout-project header { display: none; }
 #markdown-toc li {
   list-style: none !important;
   margin: 5px 0;
+  padding: 0;
 }
 
 #markdown-toc li a {
   text-decoration: none;
   color: #666 !important;
   font-size: 0.95em;
-  transition: color 0.2s;
 }
 
-#markdown-toc li a:hover {
-  color: #000 !important;
-}
+#markdown-toc li a:hover { color: #000 !important; }
 
-/* On enlève les puces des sous-listes aussi */
+/* Sous-listes sans puces */
 #markdown-toc ul {
   list-style: none !important;
   padding-left: 20px;
 }
 
-/* --- 3. MISE EN PAGE DU CONTENU --- */
-.project-main-content {
-  padding: 40px 0;
+/* --- 6. ANIMATIONS ET ESTHÉTIQUE --- */
+@keyframes fadeInUp { 
+  from { opacity: 0; transform: translateY(10px); } 
+  to { opacity: 1; transform: translateY(0); } 
 }
+.wrapper { animation: fadeInUp 0.4s ease-out forwards; }
 
 .back-link {
   display: inline-block;
@@ -55,23 +87,25 @@ body.layout-project header { display: none; }
   text-decoration: none;
   color: #999;
   font-size: 0.9em;
-  transition: transform 0.2s;
 }
-.back-link:hover { transform: translateX(-5px); color: #000; }
-
-/* --- 4. ANIMATIONS & BARRE --- */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.wrapper { animation: fadeInUp 0.4s ease-out forwards; }
+.back-link:hover { color: #000; transform: translateX(-5px); transition: 0.2s; }
 
 .progress-container { position: fixed; top: 0; left: 0; z-index: 10000; width: 100%; height: 4px; background: rgba(0,0,0,0.05); }
 .progress-bar { height: 100%; background: #000; width: 0%; }
 
-/* --- 5. ZOOM IMAGES --- */
+/* Zoom images */
 .zoom-img { transition: transform 0.3s; cursor: zoom-in; display: block; margin: 30px auto; max-width: 100%; }
 .full-zoom { transform: scale(1.5) !important; z-index: 999; cursor: zoom-out; }
 
-/* --- 6. MOBILE --- */
+/* --- 7. MOBILE --- */
 @media screen and (max-width: 768px) {
+  header, section {
+    width: 100% !important;
+    float: none !important;
+    position: static !important;
+    padding-left: 0 !important;
+  }
   .wrapper { padding: 0 20px; }
-  #markdown-toc { padding: 15px 0 !important; }
 }
+
+html { scroll-behavior: smooth; }
