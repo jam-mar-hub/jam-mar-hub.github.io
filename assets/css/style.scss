@@ -42,3 +42,13 @@ section {
     padding: 0 20px;
   }
 }
+
+.zoom-img {
+  transition: transform .3s ease;
+  cursor: zoom-in;
+}
+
+.zoom-img:hover {
+  transform: scale(1.5); /* Agrandit l'image de 50% */
+  relative: z-index: 10;
+}
