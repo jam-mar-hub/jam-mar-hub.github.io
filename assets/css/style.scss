@@ -49,8 +49,9 @@ section {
 }
 
 .zoom-img:hover {
-  transform: scale(1.5); /* Agrandit l'image de 50% */
-  relative: z-index: 10;
+  transform: scale(1.5); 
+  position: relative;
+  z-index: 10;
 }
 
 /* Style de la barre de progression */
