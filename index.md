@@ -12,16 +12,16 @@ My complete implementation of assignments and projects in [***CS224n: Natural La
 
 **Dependency Parsing:** A Neural Transition-Based Dependency Parsing system with one-layer MLP ([GitHub](https://github.com/chriskhanhtran/CS224n-NLP-Assignments/tree/master/assignments/a3)).
 
-<center><img src="images/dummy_thumbnail.jpg?raw=true"/></center>
+<center><img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img"/></center>
 
 
 ---
 [Project 2 Title](/pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img"/>
 
 ---
 [Project 3 Title](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img"/>
 
 ---
 
