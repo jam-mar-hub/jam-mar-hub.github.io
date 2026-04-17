@@ -34,7 +34,12 @@ if (isAwesome){
   return true
 }
 ```
-On remarque que le modèle suit la loi normale : $X \sim \mathcal{N}(\mu, \sigma^2)$
+
+> [!NOTE]
+> On remarque que le modèle suit la loi normale : $X \sim \mathcal{N}(\mu, \sigma^2)$
+
+The background color is `#ffffff` for light mode and `#000000` for dark mode.
+
 ### 2. Assess assumptions on which statistical inference will be based
 
 ```javascript
