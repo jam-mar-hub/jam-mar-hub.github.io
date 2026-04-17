@@ -71,7 +71,13 @@ if (isAwesome){
 
 ### 3. Support the selection of appropriate statistical tools and techniques
 
-<img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img"/>
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img" alt="Description de l'image">
+  <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 0.9em;">
+    Ceci est la description de mon image en italique et centrée
+  </p>
+</div>
 
 ### 4. Provide a basis for further data collection through surveys or experiments
 
