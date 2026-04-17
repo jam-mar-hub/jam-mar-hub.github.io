@@ -35,9 +35,9 @@ if (isAwesome){
 }
 ```
 
-<blockquote style="border-left: 5px solid #ccc; padding-left: 15px; margin-left: 0; color: #333;">
-  <strong>Note :</strong> On remarque que le modèle suit la loi normale : $X \sim \mathcal{N}(\mu, \sigma^2)$
-</blockquote>
+
+On remarque que le modèle suit la loi normale : $X \sim \mathcal{N}(\mu, \sigma^2)$
+
 
 ### 2. Assess assumptions on which statistical inference will be based
 
@@ -49,7 +49,7 @@ if (isAwesome){
 
 ### 3. Support the selection of appropriate statistical tools and techniques
 
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img"/>
 
 ### 4. Provide a basis for further data collection through surveys or experiments
 
