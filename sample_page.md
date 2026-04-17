@@ -20,6 +20,7 @@ layout: project
 * TOC
 {:toc}
 
+---
 
 ## Project description : 
 
