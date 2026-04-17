@@ -14,13 +14,10 @@ layout: project
     💻 Source code
   </a>
 </div>
-<hr>
-
 
 * TOC
 {:toc}
 
----
 
 ## Project description : 
 
