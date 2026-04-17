@@ -160,3 +160,15 @@ html {
 .project-item:hover {
   transform: translateX(5px); /* Glissement léger vers la droite au survol */
 }
+
+/* Modifiez cette partie dans votre style.scss */
+.wrapper, .project-item {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards !important;
+}
+
+/* Ajoutez ceci pour être sûr que le layout projet est inclus */
+body.layout-project .wrapper {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards !important;
+}
