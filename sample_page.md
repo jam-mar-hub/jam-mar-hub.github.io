@@ -17,8 +17,7 @@ layout: project
 <hr>
 
 
-* TOC
-{:toc}
+{:toc #markdown-toc}
 
 ---
 
