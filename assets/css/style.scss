@@ -52,3 +52,19 @@ section {
   transform: scale(1.5); /* Agrandit l'image de 50% */
   relative: z-index: 10;
 }
+
+/* Style de la barre de progression */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+}
+.progress-bar {
+  height: 4px;
+  background: #000080; /* Ton bleu marine */
+  width: 0%;
+}
