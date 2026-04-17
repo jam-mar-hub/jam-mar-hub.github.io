@@ -1,0 +1,9 @@
+---
+---
+@import "{{ site.theme }}";
+
+header h1 a {
+  color: #000080 !important; /* Ton bleu foncé */
+  text-align: center;
+  display: block;
+}
