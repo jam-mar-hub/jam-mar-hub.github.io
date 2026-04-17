@@ -106,15 +106,19 @@ window.addEventListener('scroll', event => {
   let fromTop = window.scrollY + 100;
 
   navigationLinks.forEach(link => {
+    // Essaie de trouver la section correspondante
     let section = document.querySelector(link.hash);
 
-    if (
-      section.offsetTop <= fromTop &&
-      section.offsetTop + section.offsetHeight > fromTop
-    ) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
+    // Si la section existe sur la page, on calcule sa position
+    if (section) {
+      if (
+        section.offsetTop <= fromTop &&
+        section.offsetTop + section.offsetHeight > fromTop
+      ) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     }
   });
 });
