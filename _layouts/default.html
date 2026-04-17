@@ -13,6 +13,9 @@
     {% include head-custom.html %}
   </head>
   <body>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
     <div class="wrapper">
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
