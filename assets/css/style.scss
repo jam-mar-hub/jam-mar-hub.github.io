@@ -153,21 +153,19 @@ html {
 }
 
 
-/* Structure en deux colonnes pour les projets */
+/* --- Structure des Projets --- */
 .project-container {
   display: flex;
-  max-width: 1100px; /* Un peu plus large pour la TOC */
+  max-width: 1100px;
+  margin: 0 auto;
   gap: 40px;
+  position: relative; /* Important pour le positionnement de la TOC */
 }
 
+/* On prépare l'espace pour la TOC à gauche */
 .project-toc {
-  width: 200px;
+  width: 220px;
   flex-shrink: 0;
-}
-
-.toc-sticky-content {
-  position: sticky;
-  top: 80px; /* Distance du haut de l'écran */
 }
 
 .project-content {
@@ -175,28 +173,37 @@ html {
   max-width: 800px;
 }
 
-/* Style de la Table des Matières */
-#markdown-toc, .project-toc ul {
+/* --- Style de la Table des Matières (générée par Kramdown) --- */
+#markdown-toc {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   border-left: 2px solid #eee;
+  
+  /* POSITIONNEMENT : On la sort du flux pour la mettre à gauche */
+  position: fixed;
+  top: 150px;
+  width: 200px;
+  /* On l'aligne par rapport au bord du contenu */
+  transform: translateX(-260px); 
 }
 
-#markdown-toc li a, .project-toc a {
+/* Style des liens de la TOC */
+#markdown-toc li a {
   display: block;
   padding: 5px 15px;
   color: #999 !important; /* Noir clair / Gris */
   font-size: 0.85em;
   text-decoration: none;
   transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
 }
 
-/* Couleur quand on survole ou quand la section est active */
+/* État Hover et Actif (Scrollspy) */
 #markdown-toc li a:hover, 
 #markdown-toc li a.active {
   color: #000 !important; /* Noir foncé */
   border-left: 2px solid #000;
-  margin-left: -2px; /* Pour couvrir la bordure grise */
   font-weight: bold;
 }
 
@@ -206,10 +213,22 @@ html {
   letter-spacing: 1.5px;
   color: #ccc;
   margin-bottom: 15px;
+  /* On l'aligne aussi sur la gauche */
+  position: fixed;
+  top: 120px;
+  transform: translateX(-260px);
 }
 
-/* On cache la TOC sur mobile */
-@media screen and (max-width: 1000px) {
-  .project-container { flex-direction: column; }
+/* --- Responsive : On remet la TOC dans le texte sur mobile --- */
+@media screen and (max-width: 1150px) {
+  #markdown-toc, .toc-title {
+    position: static;
+    transform: none;
+    width: auto;
+    margin-bottom: 30px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: none;
+  }
   .project-toc { display: none; }
 }
