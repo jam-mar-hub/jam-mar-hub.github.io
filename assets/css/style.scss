@@ -78,3 +78,16 @@ section {
   background: #1E7BC9; 
   width: 0%;
 }
+
+#typewriter-title::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+  margin-left: 5px;
+  color: #1E7BC9; /* Ton bleu actuel */
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
