@@ -1,4 +1,12 @@
 ---
 ---
 
-@import "jekyll-theme-minimal";
+@import "{{ site.theme }}";
+
+header img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%; /* Optionnel : pour rendre la photo ronde */
+  max-width: 150px;    /* Ajuste la taille selon tes besoins */
+}
