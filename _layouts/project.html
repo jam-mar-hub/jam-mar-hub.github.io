@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    {% seo %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    {% include head-custom.html %}
-  </head>
-  <body>
+</head>
+<body>
     <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
     
-    <div class="wrapper project-container">
-  
-      <nav class="project-toc">
-        <div class="toc-sticky-content">
-          <p class="toc-title">Summary</p>
-          <div id="sidebar-toc-target"></div>
-        </div>
-      </nav>
+    <div class="project-container wrapper">
+        <nav class="project-toc">
+            <div class="toc-sticky-content">
+                <p class="toc-title">Summary</p>
+                <div id="sidebar-toc-target"></div>
+            </div>
+        </nav>
           
-      <section class="project-content">
-        <a href="{{ '/' | relative_url }}" class="back-link">← Back to projects</a>
-        {{ content }}
-      </section>
-    
+        <section class="project-content">
+            <a href="{{ '/' | relative_url }}" class="back-link">← Back to projects</a>
+            {{ content }}
+        </section>
     </div>
 
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-  </body>
+</body>
 </html>
