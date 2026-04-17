@@ -24,12 +24,11 @@ header h1 a:hover {
   text-decoration: none !important;
 }
 
-/* Cache la barre latérale sur les pages projets */
 body.layout-project header {
-  display: none;
+  display: none; /* Cache l'ancien profil sur les pages projets */
 }
 
-/* --- 2. LAYOUT (MISE EN PAGE) --- */
+/* --- 2. LAYOUT GLOBAL --- */
 .wrapper {
   max-width: 1000px;
   margin: 0 auto;
@@ -47,8 +46,30 @@ section {
   padding-left: 40px;
 }
 
-/* Bouton Retour dans les projets */
-section > a:first-child {
+/* --- 3. STRUCTURE DES PROJETS (AVEC SOMMAIRE) --- */
+.project-container {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.project-toc {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.toc-sticky-content {
+  position: sticky;
+  top: 80px;
+}
+
+.project-content {
+  flex-grow: 1;
+  max-width: 800px;
+}
+
+.back-link {
   display: block;
   margin-bottom: 40px;
   transition: transform 0.2s;
@@ -57,15 +78,49 @@ section > a:first-child {
   font-size: 0.9em;
 }
 
-section > a:first-child:hover {
+.back-link:hover {
   transform: translateX(-5px);
 }
 
-/* --- 3. ANIMATIONS DE VOILE (FADE-IN) --- */
+/* --- 4. LE SOMMAIRE (TOC) DÉPLACÉ --- */
+#markdown-toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid #eee;
+}
+
+#markdown-toc li a {
+  display: block;
+  padding: 5px 15px;
+  color: #999 !important;
+  font-size: 0.85em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+
+#markdown-toc li a:hover, 
+#markdown-toc li a.active {
+  color: #000 !important;
+  border-left: 2px solid #000;
+  font-weight: bold;
+}
+
+.toc-title {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 1.5px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+/* --- 5. ANIMATIONS (VOILE RAPIDE 0.3s) --- */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -73,13 +128,11 @@ section > a:first-child:hover {
   }
 }
 
-/* Application de l'animation (Vitesse rapide : 0.4s) */
-.wrapper, .project-item, body.layout-project .wrapper {
+.wrapper, .project-item {
   opacity: 0;
-  animation: fadeInUp 0.4s ease-out forwards !important;
+  animation: fadeInUp 0.3s ease-out forwards !important;
 }
 
-/* Décalage progressif des projets sur la Home */
 .project-item:nth-child(1) { animation-delay: 0.05s; }
 .project-item:nth-child(2) { animation-delay: 0.1s; }
 .project-item:nth-child(3) { animation-delay: 0.15s; }
@@ -98,7 +151,7 @@ section > a:first-child:hover {
   text-decoration: underline !important;
 }
 
-/* --- 4. ZOOM IMAGES --- */
+/* --- 6. ZOOM IMAGES --- */
 .zoom-img {
   transition: transform 0.3s ease-in-out;
   cursor: zoom-in;
@@ -119,7 +172,7 @@ section > a:first-child:hover {
   cursor: zoom-out !important;
 }
 
-/* --- 5. BARRE DE PROGRESSION --- */
+/* --- 7. BARRE DE PROGRESSION --- */
 .progress-container {
   position: fixed;
   top: 0;
@@ -136,8 +189,10 @@ section > a:first-child:hover {
   width: 0%;
 }
 
-/* --- 6. MODE MOBILE --- */
-@media screen and (max-width: 768px) {
+/* --- 8. MODE MOBILE --- */
+@media screen and (max-width: 1000px) {
+  .project-container { flex-direction: column; }
+  .project-toc { display: none; }
   header, section {
     float: none;
     position: static;
@@ -150,85 +205,4 @@ section > a:first-child:hover {
 
 html {
   scroll-behavior: smooth;
-}
-
-
-/* --- Structure des Projets --- */
-.project-container {
-  display: flex;
-  max-width: 1100px;
-  margin: 0 auto;
-  gap: 40px;
-  position: relative; /* Important pour le positionnement de la TOC */
-}
-
-/* On prépare l'espace pour la TOC à gauche */
-.project-toc {
-  width: 220px;
-  flex-shrink: 0;
-}
-
-.project-content {
-  flex-grow: 1;
-  max-width: 800px;
-}
-
-/* --- Style de la Table des Matières (générée par Kramdown) --- */
-#markdown-toc {
-  list-style: none;
-  padding: 0;
-  border-left: 2px solid #eee;
-  
-  /* POSITIONNEMENT : On la sort du flux pour la mettre à gauche */
-  position: fixed;
-  top: 150px;
-  width: 200px;
-  /* On l'aligne par rapport au bord du contenu */
-  transform: translateX(-260px); 
-}
-
-/* Style des liens de la TOC */
-#markdown-toc li a {
-  display: block;
-  padding: 5px 15px;
-  color: #999 !important; /* Noir clair / Gris */
-  font-size: 0.85em;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border-left: 2px solid transparent;
-  margin-left: -2px;
-}
-
-/* État Hover et Actif (Scrollspy) */
-#markdown-toc li a:hover, 
-#markdown-toc li a.active {
-  color: #000 !important; /* Noir foncé */
-  border-left: 2px solid #000;
-  font-weight: bold;
-}
-
-.toc-title {
-  text-transform: uppercase;
-  font-size: 0.7em;
-  letter-spacing: 1.5px;
-  color: #ccc;
-  margin-bottom: 15px;
-  /* On l'aligne aussi sur la gauche */
-  position: fixed;
-  top: 120px;
-  transform: translateX(-260px);
-}
-
-/* --- Responsive : On remet la TOC dans le texte sur mobile --- */
-@media screen and (max-width: 1150px) {
-  #markdown-toc, .toc-title {
-    position: static;
-    transform: none;
-    width: auto;
-    margin-bottom: 30px;
-    background: #f9f9f9;
-    padding: 20px;
-    border-left: none;
-  }
-  .project-toc { display: none; }
 }
