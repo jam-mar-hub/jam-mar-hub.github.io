@@ -16,20 +16,20 @@ header h1 a {
 /* --- Augmentation de la police pour les pages Projets --- */
 body.layout-project {
   /* Augmente la taille de base du texte (16px par défaut, on passe à 18px ou 19px) */
-  font-size: 18px !important;
+  font-size: 17px !important;
   
   /* On ajuste aussi l'interlignage pour que ce soit plus aéré et lisible */
-  line-height: 1.7 !important;
+  line-height: 1.65 !important;
 }
 
 /* On ajuste les titres pour qu'ils restent proportionnellement plus grands */
 body.layout-project h2 {
-  font-size: 1.6em !important;
+  font-size: 1.55em !important;
   margin-top: 1.5em !important;
 }
 
 body.layout-project h3 {
-  font-size: 1.3em !important;
+  font-size: 1.25em !important;
 }
 
 /* --- 2. CONFIGURATION DU WRAPPER --- */
