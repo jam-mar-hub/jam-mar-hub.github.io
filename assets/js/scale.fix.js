@@ -44,25 +44,3 @@ document.addEventListener('click', function (event) {
   }
 });
 
-function typeWriter(elementId, speed) {
-  const element = document.getElementById(elementId);
-  if (!element) return;
-
-  const text = element.innerHTML;
-  element.innerHTML = ""; // On vide le texte au début
-  let i = 0;
-
-  function type() {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    }
-  }
-  type();
-}
-
-// On lance l'animation dès que la page est prête
-document.addEventListener("DOMContentLoaded", function() {
-  typeWriter("typewriter-title", 100); // 100ms entre chaque lettre
-});
