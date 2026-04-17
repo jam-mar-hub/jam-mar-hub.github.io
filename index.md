@@ -4,7 +4,7 @@
 
 ## Deep Learning
 
-### Medical Image Classification System 
+### [Medical Image Classification System](/sample_page) 
 
 [Project 1 Title](/sample_page)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
