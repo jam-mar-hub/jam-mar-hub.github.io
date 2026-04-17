@@ -6,7 +6,6 @@ layout: project
   <h1 style="margin-bottom: 15px;">MCP Data Science</h1>
   
   <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px;">
-    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">👤 Solo project</span>
     <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">Data Science</span>
     <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">NLP</span>
   </div>
