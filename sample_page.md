@@ -5,14 +5,11 @@ layout: default
 <div style="margin-bottom: 30px;">
   <h1 style="margin-bottom: 5px;">MCP Data Science</h1>
   
-  <div style="display: flex; gap: 10px; font-size: 0.85em; color: #666; margin-bottom: 15px;">
-    <span>📅 February 2026</span>
-    <span>👤 Solo project</span>
-  </div>
-
-  <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-    <span style="background: #f0f0f0; padding: 3px 10px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd;">Data Science</span>
-    <span style="background: #f0f0f0; padding: 3px 10px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd;">NLP</span>
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">📅 February 2026</span>
+    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">👤 Solo project</span>
+    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">Data Science</span>
+    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">NLP</span>
   </div>
 
   <a href="https://github.com/votre-lien" style="text-decoration: none; color: black; border: 1px solid black; padding: 5px 12px; border-radius: 5px; font-size: 0.9em;">
