@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div style="margin-bottom: 30px;">
-  <h1 style="margin-bottom: 25px;">MCP Data Science</h1>
+  <h1 id="typewriter-title" style="min-height: 1.2em;">MCP Data Science</h1>
   
   <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px;">
     <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">📅 February 2026</span>
