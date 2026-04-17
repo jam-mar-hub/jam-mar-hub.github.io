@@ -43,9 +43,9 @@ section {
   }
 }
 
-/* Petit zoom au passage de la souris */
+/* État de base de l'image */
 .zoom-img {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
   cursor: zoom-in;
   display: block;
   margin: 20px auto;
@@ -54,16 +54,17 @@ section {
   z-index: 1;
 }
 
-.zoom-img:hover {
-  transform: scale(1.05); /* Zoom léger au survol */
+/* Petit zoom AU SURVOL uniquement si la classe .full-zoom n'est PAS présente */
+.zoom-img:hover:not(.full-zoom) {
+  transform: scale(1.05);
 }
 
-/* Zoom plus fort quand on clique (maintien) */
-.zoom-img:active {
-  transform: scale(1.5); 
-  z-index: 999;
+/* Zoom complet (activé par le clic via JS) */
+.full-zoom {
+  transform: scale(1.8) !important;
+  z-index: 999 !important;
+  cursor: zoom-out !important;
 }
-
 /* Style de la barre de progression en haut */
 .progress-container {
   position: fixed;
@@ -79,10 +80,4 @@ section {
   height: 5px;
   background: #1E7BC9; 
   width: 0%;
-}
-
-.full-zoom {
-  transform: scale(1.8) !important;
-  z-index: 999 !important;
-  cursor: zoom-out !important;
 }
