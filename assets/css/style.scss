@@ -3,206 +3,108 @@
 
 @import "{{ site.theme }}";
 
-/* --- 1. PROFIL & NAVIGATION (NOM EN NOIR) --- */
-header img {
-  display: none !important;
-}
-
-header h1 {
-  margin-top: 0;
-  font-weight: bold;
-}
-
-header h1 a {
-  color: #000000 !important;
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-header h1 a:hover {
-  color: #333333 !important;
-  text-decoration: none !important;
-}
-
-body.layout-project header {
-  display: none; /* Cache l'ancien profil sur les pages projets */
-}
+/* --- 1. PROFIL & NAVIGATION --- */
+header img { display: none !important; }
+header h1 { margin-top: 0; font-weight: bold; }
+header h1 a { color: #000 !important; text-decoration: none !important; border-bottom: none !important; }
+header h1 a:hover { color: #333 !important; }
+body.layout-project header { display: none; }
 
 /* --- 2. LAYOUT GLOBAL --- */
-.wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
+.wrapper { max-width: 1200px; margin: 0 auto; } /* Élargi à 1200px */
+header { width: 240px; float: left; position: fixed; }
+section { width: calc(100% - 300px); float: right; padding-left: 40px; }
 
-header {
-  width: 240px;
-  float: left;
-  position: fixed;
-}
-
-section {
-  width: calc(100% - 300px);
-  float: right;
-  padding-left: 40px;
-}
-
-/* --- 3. STRUCTURE DES PROJETS (AVEC SOMMAIRE) --- */
+/* --- 3. STRUCTURE DES PROJETS (LARGE) --- */
 .project-container {
   display: flex;
-  max-width: 1100px;
+  max-width: 1300px; /* Plus d'espace pour le duo Sommaire + Texte */
   margin: 0 auto;
-  gap: 40px;
+  gap: 60px; /* Plus d'air entre le sommaire et le texte */
 }
 
 .project-toc {
-  width: 220px;
+  width: 200px;
   flex-shrink: 0;
 }
 
 .toc-sticky-content {
   position: sticky;
-  top: 80px;
+  top: 100px;
 }
 
 .project-content {
   flex-grow: 1;
-  max-width: 800px;
+  max-width: 950px; /* Espace de description beaucoup plus large */
+  padding-bottom: 100px;
 }
 
 .back-link {
   display: block;
   margin-bottom: 40px;
-  transition: transform 0.2s;
   text-decoration: none;
   color: #666;
   font-size: 0.9em;
+  transition: transform 0.2s;
 }
+.back-link:hover { transform: translateX(-5px); }
 
-.back-link:hover {
-  transform: translateX(-5px);
-}
-
-/* --- 4. LE SOMMAIRE (TOC) DÉPLACÉ --- */
+/* --- 4. LE SOMMAIRE (SANS PUCES & SURBRILLANCE) --- */
 #markdown-toc {
-  list-style: none;
-  padding: 0;
+  list-style: none !important; /* Enlève les puces */
+  padding: 0 !important;
+  margin: 0 !important;
+  border-left: 1px solid #eee;
+}
+
+#markdown-toc li {
+  list-style: none !important;
   margin: 0;
-  border-left: 2px solid #eee;
+  padding: 0;
 }
 
 #markdown-toc li a {
   display: block;
-  padding: 5px 15px;
-  color: #999 !important;
+  padding: 8px 15px;
+  color: #999 !important; /* Gris clair par défaut */
   font-size: 0.85em;
   text-decoration: none;
   transition: all 0.2s ease;
   border-left: 2px solid transparent;
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
-#markdown-toc li a:hover, 
+/* ÉTAT ACTIF (SURBRILLANCE) */
 #markdown-toc li a.active {
-  color: #000 !important;
-  border-left: 2px solid #000;
+  color: #000 !important; /* Noir profond */
   font-weight: bold;
+  border-left: 2px solid #000; /* Barre noire à gauche */
+  background: rgba(0,0,0,0.02); /* Très léger fond gris */
 }
+
+#markdown-toc li a:hover { color: #555 !important; }
 
 .toc-title {
   text-transform: uppercase;
   font-size: 0.7em;
-  letter-spacing: 1.5px;
-  color: #ccc;
-  margin-bottom: 15px;
+  letter-spacing: 2px;
+  color: #bbb;
+  margin-bottom: 20px;
 }
 
-/* --- 5. ANIMATIONS (VOILE RAPIDE 0.3s) --- */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* --- 5. AUTRES STYLES (ZOOM, PROGRESS, ETC.) --- */
+.zoom-img { transition: transform 0.3s; cursor: zoom-in; display: block; margin: 20px auto; max-width: 100%; }
+.full-zoom { transform: scale(1.8) !important; z-index: 999; cursor: zoom-out; }
 
-.wrapper, .project-item {
-  opacity: 0;
-  animation: fadeInUp 0.3s ease-out forwards !important;
-}
+.progress-container { position: fixed; top: 0; left: 0; z-index: 10000; width: 100%; height: 4px; background: rgba(0,0,0,0.05); }
+.progress-bar { height: 100%; background: #000; width: 0%; }
 
-.project-item:nth-child(1) { animation-delay: 0.05s; }
-.project-item:nth-child(2) { animation-delay: 0.1s; }
-.project-item:nth-child(3) { animation-delay: 0.15s; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.wrapper { animation: fadeInUp 0.4s ease-out forwards; }
 
-.project-item {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-bottom: 50px;
-}
-
-.project-item:hover {
-  transform: translateX(5px);
-}
-
-.project-item h2 a:hover {
-  color: #1E7BC9 !important;
-  text-decoration: underline !important;
-}
-
-/* --- 6. ZOOM IMAGES --- */
-.zoom-img {
-  transition: transform 0.3s ease-in-out;
-  cursor: zoom-in;
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.zoom-img:hover:not(.full-zoom) {
-  transform: scale(1.05);
-}
-
-.full-zoom {
-  transform: scale(1.8) !important;
-  z-index: 999 !important;
-  cursor: zoom-out !important;
-}
-
-/* --- 7. BARRE DE PROGRESSION --- */
-.progress-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-  width: 100%;
-  height: 5px;
-  background: rgba(0,0,0,0.1);
-}
-
-.progress-bar {
-  height: 5px;
-  background: #1E7BC9; 
-  width: 0%;
-}
-
-/* --- 8. MODE MOBILE --- */
-@media screen and (max-width: 1000px) {
-  .project-container { flex-direction: column; }
+/* --- MOBILE --- */
+@media screen and (max-width: 1100px) {
+  .project-container { flex-direction: column; gap: 20px; }
   .project-toc { display: none; }
-  header, section {
-    float: none;
-    position: static;
-    width: 100%;
-  }
-  .wrapper {
-    padding: 0 20px;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
+  header, section { float: none; position: static; width: 100%; }
 }
