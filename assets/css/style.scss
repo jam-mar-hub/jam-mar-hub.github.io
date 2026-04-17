@@ -8,30 +8,30 @@ header img {
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%; /* Optionnel : pour rendre la photo ronde */
-  max-width: 150px;    /* Ajuste la taille selon tes besoins */
+  max-width: 200px;    /* Ajuste la taille selon tes besoins */
 }
 
-/* 1. Élargir la zone totale du site */
+/* 1. Élargir la zone totale */
 .wrapper {
-  max-width: 1000px; /* Par défaut c'est environ 600-700px, on passe à 1000px */
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-/* 2. Réduire la largeur de la colonne de gauche (header) */
+/* 2. Fixer le profil à gauche */
 header {
-  width: 240px; /* On fixe une largeur plus raisonnable pour le profil */
+  width: 240px;
   float: left;
-  position: fixed; /* Garde ton profil visible même quand on scroll */
+  position: fixed;
 }
 
-/* 3. Agrandir la zone de texte (section) */
+/* 3. Ajuster la zone de contenu */
 section {
-  width: calc(100% - 300px); /* Prend tout le reste de l'espace moins une marge */
+  width: calc(100% - 300px);
   float: right;
   padding-left: 40px;
 }
 
-/* 4. Gestion du format Mobile (important !) */
+/* 4. Mode Mobile */
 @media screen and (max-width: 768px) {
   header, section {
     float: none;
