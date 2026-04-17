@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ## This can be your internal website page / project page
 
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin: 20px 0;">
