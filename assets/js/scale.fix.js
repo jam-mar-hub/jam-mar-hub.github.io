@@ -66,3 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+window.addEventListener('load', () => {
+  // Force l'affichage au chargement de la page
+  document.body.style.opacity = "1";
+  
+  // Relance l'effet machine à écrire
+  if (typeof typeWriter === "function") {
+    typeWriter();
+  }
+});
