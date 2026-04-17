@@ -4,6 +4,34 @@ layout: default
 
 ## This can be your internal website page / project page
 
+<div style="margin-bottom: 30px;">
+  <h1 style="margin-bottom: 5px;">MCP Data Science</h1>
+  
+  <div style="display: flex; gap: 10px; font-size: 0.85em; color: #666; margin-bottom: 15px;">
+    <span>📅 Février 2026</span>
+    <span>👤 Solo project</span>
+  </div>
+
+  <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+    <span style="background: #f0f0f0; padding: 3px 10px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd;">Data Science</span>
+    <span style="background: #f0f0f0; padding: 3px 10px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd;">NLP</span>
+  </div>
+
+  <p style="font-style: italic; border-left: 3px solid #000080; padding-left: 15px; color: #444;">
+    "Imagine being able to analyse a data file simply by describing what you want out loud..."
+  </p>
+  
+  <a href="https://github.com/votre-lien" style="text-decoration: none; color: black; border: 1px solid black; padding: 5px 12px; border-radius: 5px; font-size: 0.9em;">
+    💻 Source code
+  </a>
+</div>
+<hr>
+
+* TOC
+{:toc}
+
+---
+
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin: 20px 0;">
   
   <div style="flex: 1; text-align: center; border-right: 1px solid #eee;">
