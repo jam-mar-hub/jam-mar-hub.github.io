@@ -1,14 +1,19 @@
-title: Jamy Martin # your name (or website title) here
+title: <p align="center"> Jamy Martin </p> # your name (or website title) here
 logo: "/images/logo.png?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  <br><br>
-  <a href="https://www.linkedin.com/in/votre-profil/">LinkedIn</a> | 
-  <a href="https://votre-lien-vers-le-resume.pdf">Resume</a> | 
+
+  <p align="center">
+  <a href="pdf/resume.pdf">Resume</a> |
+  <a href="https://www.linkedin.com/in/jamy-martin/">LinkedIn</a> |
   <a href="https://github.com/jam-mar-hub">GitHub</a>
+  </p>
+  
+  <p align="justify">
+  I am pursing MS degree in Data Science at École Centrale de Lille.
   <br><br>
-  I am pursuing a MS degree in Data Science at École Centrale de Lille.
+  I am currently an AI/DS Intern at Skim AI Technologies with a focus on NLP and Deep Learning research.
   <br><br>
-  I am currently an AI/Data Scientist intern at
+  </p>
   
   
 remote_theme: pages-themes/minimal@v0.2.0
