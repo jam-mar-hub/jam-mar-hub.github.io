@@ -20,9 +20,9 @@ layout: project
 {:toc}
 
 
-## Project description : 
-
+<div style="background: #f8f8f8; border-left: 4px solid #333; padding: 20px 25px; border-radius: 4px; margin: 25px 0;">
 This project builds a production-ready ML pipeline that forecasts French electricity consumption 48 hours ahead. It pulls real-time data daily from the RTE API, cleans and stores 55,000+ hours of historical records in a PostgreSQL database hosted on Supabase, and generates probabilistic predictions using Chronos-2 — Amazon's state-of-the-art time series foundation model — fine-tuned with LoRA on French consumption patterns. The full pipeline runs autonomously via a cron job, with structured logging and automatic gap handling. The final model achieves a 3.04% MAPE on held-out data, outperforming the zero-shot baseline (4.79% MAPE).
+</div>
 
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin: 20px 0;">
   
@@ -57,7 +57,7 @@ The serving layer is a Streamlit application that reads directly from Supabase a
 The storage layer is a PostgreSQL database hosted on Supabase, acting as the single source of truth for both historical data and predictions.
 
 <div style="text-align: center; margin: 20px 0;">
-  <img src="images/architecture.png?raw=true" class="zoom-img" alt="Description de l'image">
+  <img src="images/architecture.png?raw=true" class="zoom-img" alt="Architecture" style="width: 60%; max-width: 800px;">
   <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 0.9em;">
     Description of the architecture
   </p>
