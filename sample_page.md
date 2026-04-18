@@ -57,7 +57,7 @@ The serving layer is a Streamlit application that reads directly from Supabase a
 The storage layer is a PostgreSQL database hosted on Supabase, acting as the single source of truth for both historical data and predictions.
 
 <div style="text-align: center; margin: 20px 0;">
-  <img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img" alt="Description de l'image">
+  <img src="images/architecture.png?raw=true" class="zoom-img" alt="Description de l'image">
   <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 0.9em;">
     Description of the architecture
   </p>
