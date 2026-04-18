@@ -46,7 +46,22 @@ This project builds a production-ready ML pipeline that forecasts French electri
 
 ### 1. Suggest hypotheses about the causes of observed phenomena
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+This project is structured around four independent layers that communicate through a central PostgreSQL database.
+
+The data ingestion layer runs as a daily cron job on a local machine. It authenticates against the RTE API, fetches the last 24 hours of realized electricity consumption for mainland France, cleans the raw 15-minute data into hourly averages, and inserts it into Supabase with conflict handling to avoid duplicates.
+
+The modeling layer runs on Google Colab (GPU). A Chronos-2 foundation model is fine-tuned via LoRA on the full historical dataset and generates 48-hour probabilistic forecasts, which are stored back into Supabase alongside confidence intervals.
+
+The serving layer is a Streamlit application that reads directly from Supabase and displays historical consumption, forecasts, and prediction intervals in an interactive dashboard.
+
+The storage layer is a PostgreSQL database hosted on Supabase, acting as the single source of truth for both historical data and predictions.
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="images/dummy_thumbnail.jpg?raw=true" class="zoom-img" alt="Description de l'image">
+  <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 0.9em;">
+    Description of the architecture
+  </p>
+</div>
 
 ```javascript
 if (isAwesome){
