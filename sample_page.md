@@ -3,11 +3,12 @@ layout: project
 ---
 
 <div style="text-align: center; margin-bottom: 30px;">
-  <h1 style="margin-bottom: 15px;">MCP Data Science</h1>
+  <h1 style="margin-bottom: 15px;">Electricity Consumption Forecasting — End-to-End ML Pipeline</h1>
   
   <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 25px;">
     <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">Data Science</span>
-    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">NLP</span>
+    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">Time Series</span>
+    <span style="background: #f0f0f0; padding: 3px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #ddd; color: #555;">Machine Learning</span>
   </div>
 
   <a href="https://github.com/votre-lien" style="text-decoration: none; color: black; border: 1px solid black; padding: 5px 12px; border-radius: 5px; font-size: 0.9em;">
@@ -21,18 +22,18 @@ layout: project
 
 ## Project description : 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This project builds a production-ready ML pipeline that forecasts French electricity consumption 48 hours ahead. It pulls real-time data daily from the RTE API, cleans and stores 55,000+ hours of historical records in a PostgreSQL database hosted on Supabase, and generates probabilistic predictions using Chronos-2 — Amazon's state-of-the-art time series foundation model — fine-tuned with LoRA on French consumption patterns. The full pipeline runs autonomously via a cron job, with structured logging and automatic gap handling. The final model achieves a 3.04% MAPE on held-out data, outperforming the zero-shot baseline (4.79% MAPE).
 
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin: 20px 0;">
   
   <div style="flex: 1; text-align: center; border-right: 1px solid #eee;">
-    <span style="display: block; font-size: 1.8em; font-weight: bold; color: #000000;">+25%</span>
-    <span style="font-size: 0.85em; text-transform: uppercase; color: #666; letter-spacing: 1px;">Précision</span>
+    <span style="display: block; font-size: 1.8em; font-weight: bold; color: #000000;">55,000+ hours</span>
+    <span style="font-size: 0.85em; text-transform: uppercase; color: #666; letter-spacing: 1px;">of historical records</span>
   </div>
 
   <div style="flex: 1; text-align: center; border-right: 1px solid #eee;">
-    <span style="display: block; font-size: 1.8em; font-weight: bold; color: #000000;">10k+</span>
-    <span style="font-size: 0.85em; text-transform: uppercase; color: #666; letter-spacing: 1px;">Images traitées</span>
+    <span style="display: block; font-size: 1.8em; font-weight: bold; color: #000000;">3.04%</span>
+    <span style="font-size: 0.85em; text-transform: uppercase; color: #666; letter-spacing: 1px;">MAPE</span>
   </div>
 
   <div style="flex: 1; text-align: center;">
